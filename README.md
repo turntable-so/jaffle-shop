@@ -292,3 +292,4 @@ We have kept a `.sqlfluff` config file to show what that looks like, and to futu
 a878ca52
 7cdd6329
 1773dffc
+a76439cd
