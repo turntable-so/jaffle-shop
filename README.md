@@ -291,3 +291,4 @@ We have kept a `.sqlfluff` config file to show what that looks like, and to futu
 
 e7486aada2af7def20d8aca0f468d4b54f7ec337e7d194d9aea75c67a42266a
 cd9d1304eddb5ffb3f6a66947c355e45ff69d244a771e658f4a48925212
+ecb2e0da1b90a694c788e38c3754fbb725eaff74b68e1715ac31860221aa73d
