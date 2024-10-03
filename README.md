@@ -288,3 +288,5 @@ At present, the popular SQL linter and formatter SQLFluff doesn't play nicely wi
 We have kept a `.sqlfluff` config file to show what that looks like, and to future proof the repo for when the Cloud CLI support linting and formatting.
 
 [^1]: Again, I can't emphasize enough that you should not use dbt and seeds for data loading in a production project. This is just for convenience within this learning project.
+
+e7486aada2af7def20d8aca0f468d4b54f7ec337e7d194d9aea75c67a42266a
