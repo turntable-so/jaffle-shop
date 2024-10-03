@@ -290,3 +290,4 @@ We have kept a `.sqlfluff` config file to show what that looks like, and to futu
 [^1]: Again, I can't emphasize enough that you should not use dbt and seeds for data loading in a production project. This is just for convenience within this learning project.
 
 e7486aada2af7def20d8aca0f468d4b54f7ec337e7d194d9aea75c67a42266a
+cd9d1304eddb5ffb3f6a66947c355e45ff69d244a771e658f4a48925212
