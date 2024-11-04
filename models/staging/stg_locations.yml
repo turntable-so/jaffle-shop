@@ -3,7 +3,7 @@ models:
     description: List of open locations with basic cleaning and transformation applied, one row per location.
     columns:
       - name: location_id
-        description: The unique key for each location.
+        description: The unique key for each location. Is not exhausting, ping @ian for more information
         tests:
           - not_null
           - unique
