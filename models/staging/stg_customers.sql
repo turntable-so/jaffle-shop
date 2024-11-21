@@ -7,7 +7,10 @@ with
         select
 
             -- --------  ids
-            id as customer_id, name as customer_name
+            id as customer_id,
+
+            -- -------- text
+            name as customer_name
 
         from source
 
