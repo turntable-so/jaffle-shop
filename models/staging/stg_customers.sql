@@ -1,23 +1,17 @@
 with
 
-source as (
+    source as (select * from {{ source("ecom", "raw_customers") }}),
 
-    select * from {{ source('ecom', 'raw_customers') }}
+    renamed as (
 
-),
+        select
 
-renamed as (
+            -- --------  ids
+            id as customer_id, name as customer_name
 
-    select
+        from source
 
-        ----------  ids
-        id as customer_id,
+    )
 
-        ---------- text
-        name as customer_name
-
-    from source
-
-)
-
-select * from renamed
+select *
+from renamed
