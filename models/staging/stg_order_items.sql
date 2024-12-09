@@ -1,23 +1,32 @@
-
 with
+    source as (select * from {{ source("ecom", "raw_items") }}),
 
-source as (
+    orders as (select * from {{ ref("stg_orders") }}),
 
-    select * from {{ source('ecom', 'raw_items') }}
+    joined as (
+        select
+            source.id as order_item_id,
+            source.order_id,
+            source.sku as product_id,
+            orders.ordered_at
+        from source
+        left join orders on source.order_id = orders.order_id
+    ),
 
-),
+    ranked as (
+        select
+            *,
+            row_number() over (
+                partition by order_id order by ordered_at desc
+            ) as row_num
+        from joined
+    ),
 
-renamed as (
+    deduplicated as (
+        select order_item_id, order_id, product_id, ordered_at as last_order_date
+        from ranked
+        where row_num = 1
+    )
 
-    select
-
-        ----------  ids
-        id as order_item_id,
-        order_id,
-        sku as product_id
-
-    from source
-
-)
-
-select * from renamed
+select *
+from deduplicated
