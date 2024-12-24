@@ -1,0 +1,12 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: test.duckdb
+      schema: dbt_sl_test
+    prod:
+      type: duckdb
+      path: test.duckdb
+      schema: main
+

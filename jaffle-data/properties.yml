@@ -1,0 +1,47 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    config:
+      column_types:
+        id: varchar(255)
+        name: varchar(255)
+  - name: raw_items
+    config:
+      column_types:
+        id: varchar(255)
+        order_id: varchar(255)
+        sku: varchar(255)
+  - name: raw_orders
+    config:
+      column_types:
+        id: varchar(255)
+        customer: varchar(255)
+        ordered_at: timestamp
+        store_id: varchar(255)
+        subtotal: float
+        tax_paid: float
+        order_total: float
+  - name: raw_products
+    config:
+      column_types:
+        sku: varchar(255)
+        name: varchar(255)
+        type: varchar(255)
+        price: float
+        description: varchar(255)
+  - name: raw_stores
+    config:
+      column_types:
+        id: varchar(255)
+        name: varchar(255)
+        opened_at: timestamp
+        tax_rate: float
+  - name: raw_supplies
+    config:
+      column_types:
+        id: varchar(255)
+        name: varchar(255)
+        cost: float
+        perishable: boolean
+        sku: varchar(255)
