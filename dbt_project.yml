@@ -38,11 +38,13 @@ vars:
 models:
   jaffle_shop:
     staging:
+      +schema: "staging"
       +materialized: view
       +tags: bronze
     marts:
       +materialized: table
       +tags: gold
+
 
 saved-queries:
   +cache:

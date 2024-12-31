@@ -1,3 +1,8 @@
 target/
 logs/
 dbt_packages/
+.cache/
+__pycache__/
+.DS_Store
+*.duckdb
+*.duckdb.wal

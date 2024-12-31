@@ -48,7 +48,7 @@ joined as (
 
     from order_items
 
-    left join orders on order_items.order_id  = orders.order_id
+    left join orders using(order_id)
     
     left join products on order_items.product_id = products.product_id
     
