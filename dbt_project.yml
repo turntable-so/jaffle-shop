@@ -43,6 +43,9 @@ models:
     marts:
       +materialized: table
       +tags: gold
+    testing:
+      +materialized: view
+      +tags: testing
 
 saved-queries:
   +cache:
