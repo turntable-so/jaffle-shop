@@ -17,4 +17,3 @@ select
     'Test Type' as product_type,
     'A manually added test product' as product_description,
     11.00 as product_price
-
