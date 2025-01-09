@@ -1,7 +1,7 @@
 with
 
 customers as (
-
+ 
     select * from {{ ref('stg_customers') }}
 
 ),
@@ -50,13 +50,20 @@ joined as (
         case
             when order_summary.is_repeat_buyer then 'returning'
             else 'new'
-        end as customer_type
+        end as customer_type,
+        row_number() over (partition by customers.customer_id order by customers.customer_id) as row_num
 
     from customers
 
     left join order_summary
         on customers.customer_id = order_summary.customer_id
 
+),
+
+deduplicated as (
+    select * except(row_num)
+    from joined
+    where row_num = 1
 )
 
-select * from joined
+select * from deduplicated
