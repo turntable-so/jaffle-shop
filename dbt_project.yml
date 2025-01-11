@@ -44,7 +44,7 @@ models:
       +materialized: table
       +tags: gold
     testing:
-      +materialized: view
+      +materialized: {{ env_var('DBT_TESTING_MATERIALIZATION') }}
       +tags: testing
 
 saved-queries:
