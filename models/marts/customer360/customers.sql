@@ -40,15 +40,15 @@ order_summary as (
 joined as (
 
     select
-        customers.*,
-        order_summary.count_lifetime_orders,
-        order_summary.first_ordered_at,
-        order_summary.last_ordered_at,
-        order_summary.lifetime_spend_pretax,
-        order_summary.lifetime_spend,
-
+        customers.customer_id,
+        max(customers.customer_name) as customer_name,
+        max(order_summary.count_lifetime_orders) as count_lifetime_orders,
+        min(order_summary.first_ordered_at) as first_ordered_at,
+        max(order_summary.last_ordered_at) as last_ordered_at,
+        max(order_summary.lifetime_spend_pretax) as lifetime_spend_pretax,
+        max(order_summary.lifetime_spend) as lifetime_spend,
         case
-            when order_summary.is_repeat_buyer then 'returning'
+            when max(order_summary.is_repeat_buyer) then 'returning'
             else 'new'
         end as customer_type
 
@@ -56,6 +56,8 @@ joined as (
 
     left join order_summary
         on customers.customer_id = order_summary.customer_id
+
+    group by 1
 
 )
 
