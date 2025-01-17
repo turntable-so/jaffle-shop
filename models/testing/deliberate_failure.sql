@@ -1,0 +1,1 @@
+select * fro {{ ref('stg_customers') }}
